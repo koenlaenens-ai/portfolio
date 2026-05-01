@@ -26,6 +26,7 @@
     "@octokit/rest": "^22.0.1",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.0",
+    "@vfx-js/core": "^0.13.0",
     "figma-developer-mcp": "^0.6.6",
     "next": "16.2.0",
     "react": "19.2.4",

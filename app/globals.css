@@ -212,85 +212,51 @@ body::after {
   animation-play-state: paused;
 }
 
-/* Glitch effect for profile image - Exploded layers with chromatic aberration */
-.glitch-container {
-  --glitch-x: 50;
-  --glitch-y: 50;
-  --glitch-intensity: 0;
+/* Transparent glass ring with chromatic aberration - Zajno style */
+.glass-sphere {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+
+  /* Almost completely transparent - just a thin ring */
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+
+  /* Very subtle inner highlight */
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.05),
+    0 0 10px rgba(255, 255, 255, 0.1);
+
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base layer - stays centered */
-.glitch-layer-base {
-  z-index: 5;
-  opacity: 1;
+/* RGB chromatic aberration on EDGES only */
+.glass-sphere::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+
+  /* Red channel - offset right and down */
+  border: 2px solid transparent;
+  border-top-color: rgba(255, 50, 100, 0.6);
+  border-right-color: rgba(255, 50, 100, 0.6);
+  transform: translate(3px, 3px);
+  filter: blur(1.5px);
 }
 
-/* Cyan layer - back left */
-.glitch-container .glitch-layer-cyan {
-  z-index: 1;
-  mix-blend-mode: lighten;
-  opacity: calc(var(--glitch-intensity) * 0.7);
-  transform: translate(
-    calc((50 - var(--glitch-x)) * var(--glitch-intensity) * 0.4px),
-    calc((50 - var(--glitch-y)) * var(--glitch-intensity) * 0.3px)
-  );
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
-  will-change: transform, opacity;
-}
+.glass-sphere::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
 
-.glitch-container .glitch-layer-cyan img {
-  filter: grayscale(1) sepia(1) hue-rotate(160deg) saturate(4) brightness(0.8);
-}
-
-/* Red layer - back right */
-.glitch-container .glitch-layer-red {
-  z-index: 2;
-  mix-blend-mode: lighten;
-  opacity: calc(var(--glitch-intensity) * 0.65);
-  transform: translate(
-    calc((var(--glitch-x) - 50) * var(--glitch-intensity) * 0.35px),
-    calc((50 - var(--glitch-y)) * var(--glitch-intensity) * 0.25px)
-  );
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
-  will-change: transform, opacity;
-}
-
-.glitch-container .glitch-layer-red img {
-  filter: grayscale(1) sepia(1) hue-rotate(340deg) saturate(4) brightness(0.8);
-}
-
-/* Magenta layer - front right */
-.glitch-container .glitch-layer-magenta {
-  z-index: 6;
-  mix-blend-mode: lighten;
-  opacity: calc(var(--glitch-intensity) * 0.6);
-  transform: translate(
-    calc((var(--glitch-x) - 50) * var(--glitch-intensity) * 0.5px),
-    calc((var(--glitch-y) - 50) * var(--glitch-intensity) * 0.4px)
-  );
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
-  will-change: transform, opacity;
-}
-
-.glitch-container .glitch-layer-magenta img {
-  filter: grayscale(1) sepia(1) hue-rotate(280deg) saturate(3.5) brightness(0.75);
-}
-
-/* Yellow layer - front left */
-.glitch-container .glitch-layer-yellow {
-  z-index: 7;
-  mix-blend-mode: lighten;
-  opacity: calc(var(--glitch-intensity) * 0.5);
-  transform: translate(
-    calc((50 - var(--glitch-x)) * var(--glitch-intensity) * 0.45px),
-    calc((var(--glitch-y) - 50) * var(--glitch-intensity) * 0.35px)
-  );
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
-  will-change: transform, opacity;
-}
-
-.glitch-container .glitch-layer-yellow img {
-  filter: grayscale(1) sepia(1) hue-rotate(40deg) saturate(3) brightness(0.9);
+  /* Cyan channel - offset left and up */
+  border: 2px solid transparent;
+  border-bottom-color: rgba(0, 200, 255, 0.6);
+  border-left-color: rgba(0, 200, 255, 0.6);
+  transform: translate(-3px, -3px);
+  filter: blur(1.5px);
 }
 
 /* Navigation Link */

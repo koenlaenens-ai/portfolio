@@ -2,13 +2,16 @@
 
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
+import { VFX } from '@vfx-js/core';
 
 export default function Portfolio() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeCard, setActiveCard] = useState<string | null>(null);
   const [currentKeyword, setCurrentKeyword] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-  const [imageGlitch, setImageGlitch] = useState({ x: 0, y: 0, intensity: 0 });
+  const [isHoveringImage, setIsHoveringImage] = useState(false);
+  const profileImageRef = useRef<HTMLImageElement>(null);
+  const vfxRef = useRef<any>(null);
   const keywords = ["design systems", "AI", "workflow automation", "software interfaces"];
 
   useEffect(() => {
@@ -17,6 +20,40 @@ export default function Portfolio() {
     }, 2500);
     return () => clearInterval(interval);
   }, [keywords.length]);
+
+  // Initialize VFX instance
+  useEffect(() => {
+    if (profileImageRef.current) {
+      vfxRef.current = new VFX();
+    }
+
+    return () => {
+      if (vfxRef.current && profileImageRef.current) {
+        vfxRef.current.remove(profileImageRef.current);
+      }
+    };
+  }, []);
+
+  // Apply/remove effect based on hover state
+  useEffect(() => {
+    if (!profileImageRef.current || !vfxRef.current) return;
+
+    if (isHoveringImage) {
+      // Apply static RGB Shift effect on hover
+      vfxRef.current.add(profileImageRef.current, {
+        shader: 'rgbShift',
+        overflow: 100,
+      });
+    } else {
+      // Remove effect when not hovering
+      try {
+        vfxRef.current.remove(profileImageRef.current);
+      } catch (e) {
+        // Effect might not be added yet, ignore
+      }
+    }
+  }, [isHoveringImage]);
+
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement> | MouseEvent, cardId?: string) => {
     setMousePos({
@@ -31,17 +68,6 @@ export default function Portfolio() {
   const handleMouseLeave = () => {
     // Always clear active card, even during scroll
     setActiveCard(null);
-  };
-
-  const handleImageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setImageGlitch({ x, y, intensity: 1 });
-  };
-
-  const handleImageMouseLeave = () => {
-    setImageGlitch({ x: 50, y: 50, intensity: 0 });
   };
 
   useEffect(() => {
@@ -115,7 +141,7 @@ export default function Portfolio() {
               </a>
             </div>
             <a
-              href="#contact"
+              href="mailto:koenlaenens@gmail.com?subject=Let's%20work%20together"
               className="btn btn-primary text-sm"
             >
               Get in touch
@@ -425,57 +451,17 @@ export default function Portfolio() {
               </p>
             </div>
             <div
-              className="relative aspect-[3/4] max-w-md ml-auto overflow-visible cursor-pointer glitch-container"
-              onMouseMove={handleImageMouseMove}
-              onMouseLeave={handleImageMouseLeave}
-              style={{
-                ['--glitch-x' as any]: `${imageGlitch.x}`,
-                ['--glitch-y' as any]: `${imageGlitch.y}`,
-                ['--glitch-intensity' as any]: imageGlitch.intensity,
-              }}
+              className="relative w-full max-w-md ml-auto rounded-lg overflow-hidden cursor-pointer"
+              onMouseEnter={() => setIsHoveringImage(true)}
+              onMouseLeave={() => setIsHoveringImage(false)}
             >
-              {/* Base grayscale image */}
               <img
+                ref={profileImageRef}
                 src="/profile-photo.jpg"
                 alt="Koen Laenens"
-                className="glitch-layer-base w-full h-full object-cover grayscale relative z-10"
+                className="w-full h-auto"
+                crossOrigin="anonymous"
               />
-
-              {/* Cyan layer - back left */}
-              <div className="glitch-layer glitch-layer-cyan absolute inset-0 pointer-events-none">
-                <img
-                  src="/profile-photo.jpg"
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Red layer - back right */}
-              <div className="glitch-layer glitch-layer-red absolute inset-0 pointer-events-none">
-                <img
-                  src="/profile-photo.jpg"
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Magenta layer - front right */}
-              <div className="glitch-layer glitch-layer-magenta absolute inset-0 pointer-events-none">
-                <img
-                  src="/profile-photo.jpg"
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Yellow layer - front left */}
-              <div className="glitch-layer glitch-layer-yellow absolute inset-0 pointer-events-none">
-                <img
-                  src="/profile-photo.jpg"
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -483,26 +469,23 @@ export default function Portfolio() {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-accent-yellow overflow-hidden">
-        <div className="inline-flex items-center gap-12 animate-scroll-banner whitespace-nowrap">
+        <a
+          href="mailto:koenlaenens@gmail.com?subject=Let's%20work%20together"
+          className="inline-flex items-center gap-12 animate-scroll-banner whitespace-nowrap cursor-pointer hover:opacity-90 transition-opacity"
+        >
           <h2 className="text-4xl md:text-6xl font-bold text-black uppercase tracking-tight">
             Ready to scale your design system?
           </h2>
-          <a
-            href="mailto:koenlaenens@gmail.com?subject=Let's%20work%20together"
-            className="btn btn-primary text-sm"
-          >
+          <span className="btn btn-primary text-sm">
             Get in touch
-          </a>
+          </span>
           <h2 className="text-4xl md:text-6xl font-bold text-black uppercase tracking-tight">
             Ready to scale your design system?
           </h2>
-          <a
-            href="mailto:koenlaenens@gmail.com?subject=Let's%20work%20together"
-            className="btn btn-primary text-sm"
-          >
+          <span className="btn btn-primary text-sm">
             Get in touch
-          </a>
-        </div>
+          </span>
+        </a>
       </section>
 
       {/* Footer */}
@@ -526,7 +509,7 @@ export default function Portfolio() {
             <div>
               <ul className="space-y-3">
                 <li><a href="https://linkedin.com/in/koenlaenens" target="_blank" rel="noopener noreferrer" className="text-white text-sm font-semibold hover:text-accent-yellow transition-colors uppercase tracking-wide">LinkedIn</a></li>
-                <li><a href="mailto:koenlaenens@gmail.com" className="text-white text-sm font-semibold hover:text-accent-yellow transition-colors uppercase tracking-wide">Email</a></li>
+                <li><a href="mailto:koenlaenens@gmail.com?subject=Let's%20work%20together" className="text-white text-sm font-semibold hover:text-accent-yellow transition-colors uppercase tracking-wide">Email</a></li>
               </ul>
             </div>
             <div>

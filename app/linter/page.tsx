@@ -633,12 +633,12 @@ export default function LinterCaseStudy() {
           <p className="text-xl text-white/90 mb-8">
             I build tools and infrastructure that make design systems actually work in production.
           </p>
-          <Link
-            href="/#contact"
+          <a
+            href="mailto:koenlaenens@gmail.com?subject=Let's%20work%20together"
             className="btn btn-primary text-base inline-block"
           >
             Let's talk
-          </Link>
+          </a>
         </div>
       </section>
 
