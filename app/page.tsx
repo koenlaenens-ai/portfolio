@@ -266,7 +266,7 @@ export default function Portfolio() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <Image
-                    src="/screenshots/screen-storybook.png"
+                    src="/screenshots/storybook.png"
                     alt="Storybook Component Library interface"
                     fill
                     className="project-image object-cover"
