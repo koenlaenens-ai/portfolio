@@ -76,7 +76,7 @@ export default function LinterCaseStudy() {
       <section className="pt-32 pb-20 px-8 border-b border-gray-800">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
-            <span className="text-sm font-bold tracking-widest uppercase text-accent-red">
+            <span className="text-sm font-bold tracking-widest uppercase text-accent-yellow">
               Case Study
             </span>
           </div>
@@ -176,12 +176,12 @@ export default function LinterCaseStudy() {
       </section>
 
       {/* Insight Section */}
-      <section className="py-32 px-8 bg-accent-red">
+      <section className="py-32 px-8 bg-accent-yellow">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8" style={{letterSpacing: '-0.02em', lineHeight: 1.1}}>
+          <h2 className="text-5xl md:text-6xl font-bold text-black mb-8" style={{letterSpacing: '-0.02em', lineHeight: 1.1}}>
             "If design systems are tools for quality at scale, why do we still rely on manual enforcement?"
           </h2>
-          <p className="text-xl text-white/80">
+          <p className="text-xl text-black/80">
             The breakthrough: automate quality checks inside the design tool, not after handoff.
           </p>
         </div>
@@ -196,7 +196,7 @@ export default function LinterCaseStudy() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
-              <div className="text-accent-red text-4xl font-bold mb-4">01</div>
+              <div className="text-accent-yellow text-4xl font-bold mb-4">01</div>
               <h3 className="text-white font-bold text-xl mb-4">Works Everywhere</h3>
               <p className="text-gray-300">
                 Unlike other linters limited to design files, this runs in <strong className="text-white">any Figma file</strong>—including library source files where consistency matters most.
@@ -204,7 +204,7 @@ export default function LinterCaseStudy() {
             </div>
 
             <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
-              <div className="text-accent-red text-4xl font-bold mb-4">02</div>
+              <div className="text-accent-yellow text-4xl font-bold mb-4">02</div>
               <h3 className="text-white font-bold text-xl mb-4">Severity-Based Prioritization</h3>
               <p className="text-gray-300">
                 Not all violations are equal. <strong className="text-white">Intelligent severity scoring</strong> helps designers focus on critical issues first, not noise.
@@ -212,7 +212,7 @@ export default function LinterCaseStudy() {
             </div>
 
             <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
-              <div className="text-accent-red text-4xl font-bold mb-4">03</div>
+              <div className="text-accent-yellow text-4xl font-bold mb-4">03</div>
               <h3 className="text-white font-bold text-xl mb-4">Zero-Friction UX</h3>
               <p className="text-gray-300">
                 One-click fix for common issues. Education embedded in warnings. Fast enough to run constantly.
@@ -242,7 +242,7 @@ export default function LinterCaseStudy() {
           <div className="space-y-16">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-block bg-accent-red text-black text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
+                <div className="inline-block bg-accent-yellow text-black text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
                   Step 1
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-4">Launch & Scan</h3>
@@ -282,7 +282,7 @@ export default function LinterCaseStudy() {
                 </div>
               </div>
               <div className="order-1 md:order-2">
-                <div className="inline-block bg-accent-red text-black text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
+                <div className="inline-block bg-accent-yellow text-black text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
                   Step 2
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-4">Surface Issues</h3>
@@ -294,7 +294,7 @@ export default function LinterCaseStudy() {
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-block bg-accent-red text-black text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
+                <div className="inline-block bg-accent-yellow text-black text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
                   Step 3
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-4">One-Click Fixes</h3>
@@ -333,71 +333,51 @@ export default function LinterCaseStudy() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-900 p-8 rounded-lg border-2 border-accent-red">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-accent-red rounded flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-2xl font-bold">✓</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Works in All Files</h3>
+            <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-3">Works in All Files</h3>
                   <p className="text-gray-300 text-lg mb-4">
                     Runs in design files, library files, community files—anywhere in Figma. No file type restrictions.
                   </p>
-                  <p className="text-gray-300">
-                    <strong className="text-accent-red">Why it matters:</strong> Library source files are where inconsistencies start. Catching issues there prevents them from spreading to hundreds of design files.
-                  </p>
-                </div>
+                <p className="text-gray-300">
+                  <strong className="text-accent-yellow">Why it matters:</strong> Library source files are where inconsistencies start. Catching issues there prevents them from spreading to hundreds of design files.
+                </p>
               </div>
             </div>
 
-            <div className="bg-gray-900 p-8 rounded-lg border-2 border-accent-red">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-accent-red rounded flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-2xl font-bold">⚡</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Severity-Based Prioritization</h3>
+            <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-3">Severity-Based Prioritization</h3>
                   <p className="text-gray-300 text-lg mb-4">
                     Critical, Warning, Info—designers can filter by severity and tackle breaking issues before minor polish.
                   </p>
-                  <p className="text-gray-300">
-                    <strong className="text-accent-red">Why it matters:</strong> A list of 50 violations is overwhelming. A list of 3 critical issues is actionable. Severity scoring turns noise into signal.
-                  </p>
-                </div>
+                <p className="text-gray-300">
+                  <strong className="text-accent-yellow">Why it matters:</strong> A list of 50 violations is overwhelming. A list of 3 critical issues is actionable. Severity scoring turns noise into signal.
+                </p>
               </div>
             </div>
 
-            <div className="bg-gray-900 p-8 rounded-lg border-2 border-accent-red">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-accent-red rounded flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-2xl font-bold">⚙️</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Zero Configuration Needed</h3>
+            <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-3">Zero Configuration Needed</h3>
                   <p className="text-gray-300 text-lg mb-4">
                     Works out of the box in any Figma file—no setup, no config files, no limitations.
                   </p>
-                  <p className="text-gray-300">
-                    <strong className="text-accent-red">Why it matters:</strong> No "this plugin doesn't support library files" errors. No onboarding friction. Just install and start catching issues.
-                  </p>
-                </div>
+                <p className="text-gray-300">
+                  <strong className="text-accent-yellow">Why it matters:</strong> No "this plugin doesn't support library files" errors. No onboarding friction. Just install and start catching issues.
+                </p>
               </div>
             </div>
 
-            <div className="bg-gray-900 p-8 rounded-lg border-2 border-accent-red">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-accent-red rounded flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-2xl font-bold">🔄</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Real-Time Feedback</h3>
+            <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-3">Real-Time Feedback</h3>
                   <p className="text-gray-300 text-lg mb-4">
                     Catch issues during design, not during handoff. Shift quality left in the workflow.
                   </p>
-                  <p className="text-gray-300">
-                    <strong className="text-accent-red">Why it matters:</strong> Designers fix violations before review, eliminating rework loops and reducing time-to-ship.
-                  </p>
-                </div>
+                <p className="text-gray-300">
+                  <strong className="text-accent-yellow">Why it matters:</strong> Designers fix violations before review, eliminating rework loops and reducing time-to-ship.
+                </p>
               </div>
             </div>
           </div>
@@ -534,28 +514,28 @@ export default function LinterCaseStudy() {
 
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-accent-red rounded-full mt-2"></div>
+                  <div className="w-2 h-2 bg-accent-yellow rounded-full mt-2"></div>
                   <div>
                     <h4 className="text-white font-bold mb-1">Figma Plugin API</h4>
                     <p className="text-gray-300">Deep integration with Figma's node structure for comprehensive scanning</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-accent-red rounded-full mt-2"></div>
+                  <div className="w-2 h-2 bg-accent-yellow rounded-full mt-2"></div>
                   <div>
                     <h4 className="text-white font-bold mb-1">Custom Rules Engine</h4>
                     <p className="text-gray-300">Extensible architecture for adding new linting rules as the system evolves</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-accent-red rounded-full mt-2"></div>
+                  <div className="w-2 h-2 bg-accent-yellow rounded-full mt-2"></div>
                   <div>
                     <h4 className="text-white font-bold mb-1">Auto-Fix Capabilities</h4>
                     <p className="text-gray-300">Programmatic layer manipulation for one-click issue resolution</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-accent-red rounded-full mt-2"></div>
+                  <div className="w-2 h-2 bg-accent-yellow rounded-full mt-2"></div>
                   <div>
                     <h4 className="text-white font-bold mb-1">TypeScript + React</h4>
                     <p className="text-gray-300">Modern tech stack for rapid iteration and maintainability</p>
@@ -571,19 +551,19 @@ export default function LinterCaseStudy() {
               </p>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-start gap-3">
-                  <span className="text-accent-red">→</span>
+                  <span className="text-accent-yellow">→</span>
                   <span>Go from concept to working prototype in hours, not weeks</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-accent-red">→</span>
+                  <span className="text-accent-yellow">→</span>
                   <span>Focus on design decisions and UX refinement instead of boilerplate</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-accent-red">→</span>
+                  <span className="text-accent-yellow">→</span>
                   <span>Iterate rapidly on rule logic based on real designer feedback</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-accent-red">→</span>
+                  <span className="text-accent-yellow">→</span>
                   <span>Ship production-quality code without a dedicated engineering team</span>
                 </li>
               </ul>
@@ -600,21 +580,21 @@ export default function LinterCaseStudy() {
           </h2>
 
           <div className="space-y-8">
-            <div className="border-l-4 border-accent-red pl-8">
+            <div className="border-l-4 border-gray-800 pl-8">
               <h3 className="text-2xl font-bold text-white mb-4">Automation beats documentation</h3>
               <p className="text-xl text-gray-300" style={{lineHeight: 1.6}}>
                 No amount of Confluence pages will match the effectiveness of automated, in-context feedback. If you want adoption, meet designers where they work.
               </p>
             </div>
 
-            <div className="border-l-4 border-accent-red pl-8">
+            <div className="border-l-4 border-gray-800 pl-8">
               <h3 className="text-2xl font-bold text-white mb-4">Speed to value matters</h3>
               <p className="text-xl text-gray-300" style={{lineHeight: 1.6}}>
                 Three days from idea to deployment means we can test the hypothesis fast and iterate based on real usage. AI-assisted development unlocks this velocity.
               </p>
             </div>
 
-            <div className="border-l-4 border-accent-red pl-8">
+            <div className="border-l-4 border-gray-800 pl-8">
               <h3 className="text-2xl font-bold text-white mb-4">Start small, prove value</h3>
               <p className="text-xl text-gray-300" style={{lineHeight: 1.6}}>
                 Rather than building a comprehensive linter with 50 rules, I shipped with 5 high-impact rules. Early adoption will inform what to build next.
@@ -625,21 +605,21 @@ export default function LinterCaseStudy() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-accent-red">
-        <div className="max-w-4xl mx-auto text-center px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8" style={{letterSpacing: '-0.02em'}}>
+      <section className="py-20 bg-accent-yellow">
+        <a
+          href="mailto:koenlaenens@gmail.com?subject=Let's%20work%20together"
+          className="block max-w-4xl mx-auto text-center px-8 cursor-pointer hover:opacity-90 transition-opacity"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-8" style={{letterSpacing: '-0.02em'}}>
             Need help scaling your design system?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-black/80 mb-8">
             I build tools and infrastructure that make design systems actually work in production.
           </p>
-          <a
-            href="mailto:koenlaenens@gmail.com?subject=Let's%20work%20together"
-            className="btn btn-primary text-base inline-block"
-          >
+          <span className="btn btn-primary text-base inline-block">
             Let's talk
-          </a>
-        </div>
+          </span>
+        </a>
       </section>
 
       {/* Footer */}
@@ -662,7 +642,7 @@ export default function LinterCaseStudy() {
               e.stopPropagation();
               closeLightbox();
             }}
-            className="absolute top-8 right-8 text-white text-4xl hover:text-accent-red transition-colors z-10"
+            className="absolute top-8 right-8 text-white text-4xl hover:text-accent-yellow transition-colors z-10"
             aria-label="Close lightbox"
           >
             ×
